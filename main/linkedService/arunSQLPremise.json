@@ -1,0 +1,15 @@
+{
+	"name": "arunSQLPremise",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=arunsNewSQL;initial catalog=sqlDB;user id=arunsankar",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3NDBjZWZmZi01NmFiLTRjMTctOWM1MS0xYTg4NjQ0ZmY5OWUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "arunIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

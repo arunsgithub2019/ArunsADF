@@ -1,0 +1,44 @@
+{
+	"name": "pipelineSQLtoADLS",
+	"properties": {
+		"activities": [
+			{
+				"name": "CopySQLtoADLS",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderQuery": {
+							"value": "Select SalesOrderID, OrderDate, SubTotal, ModifiedDate from InPremiseSalesOrderHeader where Convert(date, ModifiedDate) = '@{formatDateTime(adddays(utcnow(), -1), 'yyyy-MM-dd' )}'",
+							"type": "Expression"
+						}
+					},
+					"sink": {
+						"type": "AzureDataLakeStoreSink"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "arunALDSSqlServerTable",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "arunADLSAzureDataLakeStoreFile",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

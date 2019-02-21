@@ -1,0 +1,15 @@
+{
+	"name": "DS_BlobStorage",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ArunAzureBlobStore",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlob",
+		"typeProperties": {
+			"fileName": "",
+			"folderPath": "files"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

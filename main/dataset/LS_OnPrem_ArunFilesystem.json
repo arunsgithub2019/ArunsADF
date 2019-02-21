@@ -1,0 +1,11 @@
+{
+	"name": "LS_OnPrem_ArunFilesystem",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ArunLocalFile",
+			"type": "LinkedServiceReference"
+		},
+		"type": "FileShare"
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

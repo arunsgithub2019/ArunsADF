@@ -1,0 +1,19 @@
+{
+	"name": "arunAzureDataLakeStore",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "AzureDataLakeStore",
+		"typeProperties": {
+			"dataLakeStoreUri": "https://arunadls0219.azuredatalakestore.net/webhdfs/v1",
+			"servicePrincipalId": "418dda5f-6f48-42bd-abcc-6bc4583a6307",
+			"tenant": "cc8f6f45-c426-4344-a403-3e0e97cf9621",
+			"subscriptionId": "0080cf7e-a083-4728-b09c-cf34b9e9d1cc",
+			"resourceGroupName": "ArunsRG",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJjNmIwNGEyYS04ZDk4LTQwOTgtYjYwMi02NzZhYWRhMzZiMmMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "arunIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

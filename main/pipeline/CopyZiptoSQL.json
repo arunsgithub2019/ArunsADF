@@ -1,0 +1,63 @@
+{
+	"name": "CopyZiptoSQL",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_9tz",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "arunexceltosqlsingle/EmployeeData.zip"
+					},
+					{
+						"name": "Destination",
+						"value": "[dbo].[employeeazure]"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": false
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000,
+						"preCopyScript": "delete from [dbo].[employeeazure]"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"id": "ID",
+							"first_name": "first_name",
+							"last_name": "last_name",
+							"gender": "gender",
+							"company_name": "companyname"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_9tz",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_9tz",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

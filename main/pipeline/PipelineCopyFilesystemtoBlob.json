@@ -1,0 +1,42 @@
+{
+	"name": "PipelineCopyFilesystemtoBlob",
+	"properties": {
+		"activities": [
+			{
+				"name": "PieplineCopyData",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "FileSystemSource",
+						"recursive": true
+					},
+					"sink": {
+						"type": "BlobSink",
+						"copyBehavior": "PreserveHierarchy"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "LS_OnPrem_ArunFilesystem",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_BlobStorage",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
